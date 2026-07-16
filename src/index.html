@@ -77,9 +77,26 @@
         <div class="about__content container">
           <h2>About Us</h2>
           <span class="section-heading__divider section-heading__divider--light" aria-hidden="true"></span>
-          <p class="about__quote text-quote">Who are we? Just a bunch of friends with a love for a good coffee and desire to create something new, something original.</p>
-          <p class="about__quote text-quote">Our coffees reflect us &ndash; young, wild and free. We are on the journey of new tastes&hellip;</p>
-          <p class="about__signoff">Join us!</p>
+
+          <div class="team-carousel" id="team-carousel">
+            <ul class="team-carousel__track">
+              <li class="team-carousel__slide is-active">
+                <img class="team-carousel__photo" src="images/team/elizabeth-doherty.png" alt="Elizabeth Doherty">
+                <p class="team-carousel__name">Elizabeth <strong>Doherty</strong></p>
+                <p class="team-carousel__bio text-quote">Experienced barista from Bahamas. She says that Venezuela has opened her eyes on coffee. &ldquo;It&rsquo;s not about the taste&rdquo;, she says. &ldquo;It&rsquo;s all about the feelings&rdquo;.</p>
+              </li>
+              <li class="team-carousel__slide">
+                <img class="team-carousel__photo" src="images/team/max-selfish.png" alt="Max Selfish">
+                <p class="team-carousel__name">Max <strong>Selfish</strong></p>
+                <p class="team-carousel__bio text-quote">Max is the austrian barista with years of experience from the hotels across the whole Europe. &ldquo;Venezuela coffee was a lightening experience for me! I have never drink such an amazing coffee!&rdquo;, he says.</p>
+              </li>
+              <li class="team-carousel__slide">
+                <img class="team-carousel__photo" src="images/team/ping-nihao.png" alt="Ping Nihao">
+                <p class="team-carousel__name">Ping <strong>Nihao</strong></p>
+                <p class="team-carousel__bio text-quote">Ping is the youngest in the team. He doesn&rsquo;t like calling coffee a mysterious act. He says, a good coffee is like a mathematical formula. Once you figured it out, every coffee you make is a masterpiece.</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -134,6 +151,10 @@
     <li class="product {{#if mostPopular}}product--popular{{/if}} {{#if isReversed}}product--reversed{{/if}}">
       <div class="product__figure">
         <img src="images/{{image}}" alt="{{title}} coffee blend" loading="lazy">
+        <div class="product__price">
+          <span class="product__price-old">{{oldPrice}}$</span>
+          <span class="product__price-now">{{price}}$</span>
+        </div>
       </div>
       <div class="product__info">
         <h3 class="product__title"><span class="product__index">{{indexLabel}}.</span> {{title}}</h3>

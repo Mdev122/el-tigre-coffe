@@ -32,6 +32,7 @@
 }
 
 .product__figure {
+  position: relative;
   flex: 0 0 48%;
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
 
@@ -40,6 +41,39 @@
     height: 320px;
     object-fit: cover;
   }
+}
+
+// Corner price ribbon: a triangular gold tag in the top-right of the image
+.product__price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 128px;
+  height: 96px;
+  background: $color-gold;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 12px 14px 0 0;
+  text-align: right;
+}
+
+.product__price-old {
+  font-family: $font-family-base;
+  font-weight: $weight-semibold;
+  font-size: 0.72rem;
+  color: $color-white;
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
+.product__price-now {
+  font-family: $font-family-base;
+  font-weight: $weight-black;
+  font-size: 1.1rem;
+  color: $color-black;
 }
 
 .product__info {

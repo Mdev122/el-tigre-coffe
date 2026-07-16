@@ -21,6 +21,9 @@ class App {
     this.footerYearEl = document.querySelector(settings.selectors.footerYear);
     this.logoCanvas = document.querySelector(settings.selectors.logoCanvas);
 
+    this.heroTitles = Array.from(document.querySelectorAll(settings.selectors.heroTitle));
+    this.teamCarousel = document.querySelector(settings.selectors.teamCarousel);
+
     this.init();
   }
 
@@ -28,10 +31,12 @@ class App {
     const thisApp = this;
 
     thisApp.initFooterYear();
+    thisApp.initHeroHeadline();
     thisApp.initMobileNav();
     thisApp.initPageNav();
     thisApp.initContactForm();
     thisApp.initLogoCanvas();
+    thisApp.initTeamCarousel();
     thisApp.initData();
   }
 
@@ -42,6 +47,23 @@ class App {
     if(this.footerYearEl){
       this.footerYearEl.textContent = String(new Date().getFullYear());
     }
+  }
+
+  // ---------------------------------------------------------------------
+  // Random hero headline: same visual style every time, random copy.
+  // Picked once per page load, applied to every .hero__title on the page
+  // (both the Home and Contact hero use the same element).
+  // ---------------------------------------------------------------------
+  initHeroHeadline(){
+    if(!this.heroTitles.length) return;
+
+    const headlines = settings.heroHeadlines;
+    const randomIndex = Math.floor(Math.random() * headlines.length);
+    const headline = headlines[randomIndex];
+
+    this.heroTitles.forEach((titleEl) => {
+      titleEl.innerHTML = headline;
+    });
   }
 
   // ---------------------------------------------------------------------
@@ -152,6 +174,35 @@ class App {
       this.contactFeedback.textContent = 'Thanks! Your message has been sent.';
       this.contactForm.reset();
     });
+  }
+
+  // ---------------------------------------------------------------------
+  // About Us team carousel: 3 slides hardcoded in HTML (per spec), auto
+  // advances every 5s, no controls at all (client explicitly doesn't
+  // want any).
+  // ---------------------------------------------------------------------
+  initTeamCarousel(){
+    if(!this.teamCarousel) return;
+
+    const slides = Array.from(this.teamCarousel.querySelectorAll(settings.selectors.teamCarouselSlide));
+    if(slides.length < 2) return;
+
+    let activeIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
+    if(activeIndex < 0) activeIndex = 0;
+
+    const showSlide = (nextIndex) => {
+      slides[activeIndex].classList.remove('is-active');
+      slides[nextIndex].classList.add('is-active');
+      activeIndex = nextIndex;
+    };
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReducedMotion) return;
+
+    window.setInterval(() => {
+      const nextIndex = (activeIndex + 1) % slides.length;
+      showSlide(nextIndex);
+    }, settings.carouselIntervalMs);
   }
 
   // ---------------------------------------------------------------------

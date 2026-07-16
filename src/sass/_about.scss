@@ -38,28 +38,67 @@
   }
 }
 
-.about__quote {
-  color: $color-white;
-  font-size: 1.15rem;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: 12%;
+// Team carousel — 3 hardcoded slides (photo, name, bio), auto-advanced by
+// script.js every 5s, no controls. All slides share one grid cell so they
+// crossfade without a hand-picked min-height.
+.team-carousel {
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.about__signoff {
-  font-weight: $weight-semibold;
-  font-style: italic;
-  color: $color-gold;
-  text-align: right;
-  margin-top: 12px;
-  margin-right: 12%;
+.team-carousel__track {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.team-carousel__slide {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.team-carousel__photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.team-carousel__name {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+  font-weight: $weight-regular;
+  color: $color-white;
+
+  strong {
+    font-weight: $weight-bold;
+  }
+}
+
+.team-carousel__bio {
+  color: $color-white;
+  max-width: 440px;
+  margin: 0;
 }
 
 @media (max-width: $bp-mobile) {
-  .about__quote,
-  .about__signoff {
-    margin-right: 0;
+  .team-carousel__slide {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .team-carousel__bio {
     max-width: 100%;
-    text-align: left;
   }
 }

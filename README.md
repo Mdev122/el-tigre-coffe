@@ -72,3 +72,24 @@ The brief's workflow assumes a Fontello export (`font/` + `fontello.css`) droppe
 
 If you do get real access to fontello.com/Glyphter later, swap the files in `vendor/font/` and
 `sass/_icons.scss` 1:1 — nothing else needs to change.
+
+## Optional features (Option 1, week 3)
+
+All three are implemented:
+
+- **Random hero headline** — `settings.js` holds the 3 approved copy variants; `script.js`
+  picks one at random on every load and applies it to every `.hero__title` on the page (Home
+  and Contact share the same hero style, so both get the same random pick per visit).
+- **Product price** — `price`/`oldPrice` live in `db/app.json` next to the rest of the product
+  data (never hard-coded in HTML) and render through the same Handlebars template as everything
+  else, as a gold corner ribbon on the product image.
+- **About Us team carousel** — replaces the old single paragraph with 3 hardcoded slides (photo,
+  name, bio), exactly as specced ("nie zamierza zmieniać tych informacji... mogą być zapisane na
+  sztywno w HTML-u"). Auto-advances every 5s via `setInterval`, **no controls**, and respects
+  `prefers-reduced-motion` (auto-advance is skipped for that preference, matching how the rest of
+  the site treats reduced motion). Built as plain JS/CSS (crossfade via CSS Grid stacking) rather
+  than pulling in Flickity — for 3 fixed slides with no drag/swipe requirement, a dependency
+  wasn't worth it, in keeping with the rest of the project's no-framework approach.
+  - **Note:** the 3 uploaded photos were mapped to Elizabeth Doherty / Max Selfish / Ping Nihao in
+    that order (matching the order they were introduced in the brief) — double check
+    `images/team/*.png` against the actual people and rename/reorder if the guess was wrong.
