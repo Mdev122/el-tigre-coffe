@@ -1,6 +1,13 @@
+// In local dev, browser-sync (dist) and json-server (API) run as two separate
+// processes on different ports (see package.json "watch"), so the API needs an
+// absolute URL. In production (Render), json-server serves the static build
+// AND the API from the same process/origin, so a relative URL is correct and
+// avoids ever having to hard-code a real domain here.
+const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
 export const settings = {
   db: {
-    url: 'http://localhost:3131',
+    url: isLocalDev ? 'http://localhost:3131' : '',
     products: 'products'
   },
   selectors: {

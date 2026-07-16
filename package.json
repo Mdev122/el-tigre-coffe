@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.html",
+    "engines": {
+        "node": ">=18"
+    },
     "scripts": {
         "init-project": "npm install && npm-run-all init:*",
         "init:dirs": "mkdirp dist src/sass src/css src/vendor src/images src/js src/db",
@@ -15,6 +18,7 @@
         "test:js": "eslint --fix src/js/",
         "test:scss": "stylelint --fix src/sass/",
         "server": "json-server --port 3131 --no-cors --delay 250 --watch dist/db/app.json",
+        "start": "json-server --watch dist/db/app.json --static dist --host 0.0.0.0 --port ${PORT:-3131}",
         "build": "npm-run-all build:* test",
         "build:clean": "rimraf dist && mkdirp dist",
         "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
