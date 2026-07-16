@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Tigre | Venezuela Coffee Beans</title>
+  <meta name="description" content="El Tigre - Venezuelan coffee roastery. Home of original tastes.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a href="#home" class="brand" data-nav-link data-target="home">
+        <canvas id="logo-canvas" class="brand__canvas" width="56" height="56" aria-hidden="true"></canvas>
+        <span class="brand__text">
+          <span class="brand__name">El Tigre</span>
+          <span class="brand__tagline">Venezuela Coffee Beans</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <ul class="primary-nav__list">
+          <li><a href="#home" data-nav-link data-target="home" class="is-active">Home</a></li>
+          <li><a href="#products" data-nav-link data-target="home" data-scroll-to="products-section">Products</a></li>
+          <li><a href="#contact" data-nav-link data-target="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- VIEW: HOME (hero + products + about) -->
+    <section class="view is-active" id="page-home" data-page="home">
+
+      <section class="hero">
+        <div class="hero__media hero__media--beans"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content container">
+          <h1 class="hero__title">Home of<br>Original Tastes</h1>
+          <span class="hero__divider" aria-hidden="true"></span>
+          <a class="hero__discover" data-scroll-to="products-section" href="#products">
+            <span>Discover</span>
+            <i class="icon-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <section class="products page" id="products-section">
+        <div class="section-heading container">
+          <h2>Products</h2>
+          <span class="section-heading__divider" aria-hidden="true"></span>
+        </div>
+
+        <ul class="products__list container" id="products-list" aria-live="polite">
+          <!-- product cards injected here by script.js via Handlebars -->
+          <li class="products__status">Loading products&hellip;</li>
+        </ul>
+      </section>
+
+      <section class="about page">
+        <div class="about__media"></div>
+        <div class="about__overlay"></div>
+        <div class="about__content container">
+          <h2>About Us</h2>
+          <span class="section-heading__divider section-heading__divider--light" aria-hidden="true"></span>
+          <p class="about__quote text-quote">Who are we? Just a bunch of friends with a love for a good coffee and desire to create something new, something original.</p>
+          <p class="about__quote text-quote">Our coffees reflect us &ndash; young, wild and free. We are on the journey of new tastes&hellip;</p>
+          <p class="about__signoff">Join us!</p>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- VIEW: CONTACT (hero + contact form) -->
+    <section class="view" id="page-contact" data-page="contact">
+
+      <section class="hero hero--compact">
+        <div class="hero__media hero__media--beans"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content container">
+          <h1 class="hero__title">Home of<br>Original Tastes</h1>
+          <span class="hero__divider" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="contact page">
+        <div class="section-heading container">
+          <h2>Contact Us</h2>
+          <span class="section-heading__divider" aria-hidden="true"></span>
+        </div>
+
+        <form class="contact__form container" id="contact-form" novalidate>
+          <div class="form-field">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="contact-title">Title</label>
+            <input type="text" id="contact-title" name="title" required>
+          </div>
+          <div class="form-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="6" required></textarea>
+          </div>
+          <p class="contact__feedback" id="contact-feedback" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </section>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="footer-year">2021</span> El Tigre inc.</p>
+  </footer>
+
+  <!-- Handlebars template for a single product (the only view rendered dynamically, per spec) -->
+  <script id="product-template" type="text/x-handlebars-template">
+    <li class="product {{#if mostPopular}}product--popular{{/if}} {{#if isReversed}}product--reversed{{/if}}">
+      <div class="product__figure">
+        <img src="images/{{image}}" alt="{{title}} coffee blend" loading="lazy">
+      </div>
+      <div class="product__info">
+        <h3 class="product__title"><span class="product__index">{{indexLabel}}.</span> {{title}}</h3>
+        <span class="product__rule" aria-hidden="true"></span>
+        <p class="product__desc">{{description}}</p>
+        <dl class="product__stats">
+          <div><dt>Roasting:</dt> <dd>{{roasting}}/10</dd></div>
+          <div><dt>Intensity:</dt> <dd>{{intensity}}/10</dd></div>
+        </dl>
+        {{#if mostPopular}}
+        <div class="product__badge">
+          <span class="product__badge-number">1</span>
+          <span class="product__badge-label">Most<br>Popular</span>
+        </div>
+        {{/if}}
+      </div>
+    </li>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>

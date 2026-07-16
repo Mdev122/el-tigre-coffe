@@ -1,0 +1,57 @@
+@import 'variables';
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: $font-family-base;
+  font-weight: $weight-black;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-black;
+}
+
+p {
+  margin: 0 0 1em;
+  line-height: 1.7;
+  font-weight: $weight-regular;
+}
+
+// Recurring "PRODUCTS" / "ABOUT US" / "CONTACT US" style heading, always
+// centered with a short gold rule beneath it.
+.section-heading {
+  text-align: center;
+  margin-bottom: 56px;
+
+  h2 {
+    font-size: 2.1rem;
+    color: $color-gold;
+    margin-bottom: 18px;
+  }
+}
+
+.section-heading__divider {
+  display: inline-block;
+  width: 96px;
+  height: 2px;
+  background: $color-gold;
+
+  &--light {
+    background: $color-gold;
+  }
+}
+
+// Recurring uppercase nav/label style (nav links, stat labels, footer)
+.label-text {
+  font-family: $font-family-base;
+  font-weight: $weight-semibold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+// Recurring italic pull-quote style (About Us copy)
+.text-quote {
+  font-family: $font-family-base;
+  font-weight: $weight-semibold;
+  font-style: italic;
+  line-height: 1.8;
+}

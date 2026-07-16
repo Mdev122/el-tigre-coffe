@@ -1,0 +1,38 @@
+// Icon font ------------------------------------------------------------
+// Only the arrow-down glyph is bundled (subset from Font Awesome Free's
+// "regular" style, codepoint f358 / arrow-alt-circle-down) so we ship a
+// handful of bytes instead of an entire icon library for one glyph.
+// Files live in /vendor/font, referenced relative to dist/css/style.css.
+//
+// Note: no .eot/.svg fallback is included (those only mattered for
+// IE/old iOS); woff2 + woff + ttf cover every browser this project targets.
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../vendor/font/fontello.woff2?67757242') format('woff2'),
+    url('../vendor/font/fontello.woff?67757242') format('woff'),
+    url('../vendor/font/fontello.ttf?67757242') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow:before {
+  content: '\f358';
+}

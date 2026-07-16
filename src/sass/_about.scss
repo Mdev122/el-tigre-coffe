@@ -1,0 +1,65 @@
+@import 'variables';
+
+.about {
+  position: relative;
+  overflow: hidden;
+  background: $color-black;
+}
+
+.about__media {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/about-us.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+}
+
+.about__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.92) 30%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.about__content {
+  position: relative;
+  z-index: 1;
+
+  h2 {
+    color: $color-gold;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .section-heading__divider {
+    display: block;
+    margin: 0 auto 64px;
+  }
+}
+
+.about__quote {
+  color: $color-white;
+  font-size: 1.15rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: 12%;
+}
+
+.about__signoff {
+  font-weight: $weight-semibold;
+  font-style: italic;
+  color: $color-gold;
+  text-align: right;
+  margin-top: 12px;
+  margin-right: 12%;
+}
+
+@media (max-width: $bp-mobile) {
+  .about__quote,
+  .about__signoff {
+    margin-right: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+}

@@ -1,0 +1,152 @@
+@import 'variables';
+
+.products {
+  background: $color-white;
+}
+
+.products__list {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.products__status {
+  text-align: center;
+  font-family: $font-family-base;
+  font-weight: $weight-semibold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: $color-text-muted;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  position: relative;
+
+  &--reversed {
+    flex-direction: row-reverse;
+  }
+}
+
+.product__figure {
+  flex: 0 0 48%;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
+
+  img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+  }
+}
+
+.product__info {
+  flex: 1;
+  position: relative;
+}
+
+.product__title {
+  font-size: 1.55rem;
+  font-weight: $weight-black;
+  margin-bottom: 18px;
+}
+
+.product__index {
+  color: $color-black;
+}
+
+.product__rule {
+  display: block;
+  width: 44px;
+  height: 2px;
+  background: $color-gold;
+  margin-bottom: 18px;
+}
+
+.product__desc {
+  max-width: 380px;
+  font-size: 0.95rem;
+  font-weight: $weight-regular;
+  color: $color-text-muted;
+}
+
+.product__stats {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  div {
+    display: flex;
+    gap: 6px;
+  }
+
+  dt {
+    color: $color-black;
+    font-weight: $weight-semibold;
+  }
+
+  dd {
+    margin: 0;
+    color: $color-gold;
+    font-weight: $weight-bold;
+  }
+}
+
+.product__badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: $color-gold;
+}
+
+.product__badge-number {
+  font-family: $font-family-base;
+  font-size: 2.4rem;
+  font-weight: $weight-black;
+  line-height: 1;
+}
+
+.product__badge-label {
+  font-family: $font-family-base;
+  font-weight: $weight-bold;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-black;
+}
+
+.product--reversed .product__badge {
+  right: auto;
+  left: 0;
+}
+
+@media (max-width: $bp-tablet) {
+  .product,
+  .product--reversed {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .product__figure {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .product__badge,
+  .product--reversed .product__badge {
+    left: auto;
+    right: 0;
+    top: -46px;
+  }
+}

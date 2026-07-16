@@ -1,0 +1,30 @@
+// Palette — exactly the 3 swatches from the client's design cheatsheet
+$color-gold: #bea67c;
+$color-white: #fff;
+$color-black: #000;
+
+// Tints derived from the palette above (not new brand colors — just
+// alpha variants of black/white for muted text and overlays)
+$color-text-muted: rgba($color-black, 0.62);
+$color-hairline: rgba($color-white, 0.28);
+$color-overlay-dark: rgba($color-black, 0.82);
+
+// Type — the cheatsheet asks for Source Sans Pro in 5 specific cuts:
+// Black, SemiBold, SemiBold Italic, Bold, Regular. One family, several weights.
+$font-family-base: 'Source Sans Pro', Arial, sans-serif;
+
+$weight-regular: 400;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-black: 900;
+
+// Layout
+$container-width: 1180px;
+$gutter: 32px;
+
+// Breakpoints
+$bp-tablet: 900px;
+$bp-mobile: 600px;
+
+// Motion
+$ease: cubic-bezier(0.22, 1, 0.36, 1);

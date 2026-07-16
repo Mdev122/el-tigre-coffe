@@ -1,0 +1,17 @@
+@import 'variables';
+
+.site-footer {
+  background: $color-white;
+  text-align: center;
+  padding: 18px $gutter 28px;
+
+  p {
+    margin: 0;
+    font-family: $font-family-base;
+    font-weight: $weight-semibold;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+}

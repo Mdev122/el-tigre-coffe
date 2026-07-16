@@ -1,0 +1,19 @@
+// normalize default browser styles
+@import 'normalize';
+
+// variables (colors, type, layout, breakpoints)
+@import 'variables';
+
+// common styles
+@import 'layout';
+@import 'global';
+@import 'typography';
+@import 'icons';
+
+// components / sections
+@import 'header';
+@import 'hero';
+@import 'products';
+@import 'about';
+@import 'contact';
+@import 'footer';

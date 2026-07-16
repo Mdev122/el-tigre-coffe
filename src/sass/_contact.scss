@@ -1,0 +1,60 @@
+@import 'variables';
+
+.contact {
+  background: $color-white;
+}
+
+.contact__form {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.form-field {
+  margin-bottom: 32px;
+
+  label {
+    display: block;
+    font-family: $font-family-base;
+    font-weight: $weight-semibold;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 12px;
+    color: $color-black;
+  }
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid $color-black;
+    background: transparent;
+    padding: 12px 14px;
+    font-family: $font-family-base;
+    font-weight: $weight-regular;
+    font-size: 0.95rem;
+    color: $color-black;
+    resize: vertical;
+
+    &:focus-visible {
+      outline: 2px solid $color-gold;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.contact__feedback {
+  text-align: center;
+  min-height: 1.4em;
+  font-family: $font-family-base;
+  font-weight: $weight-semibold;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: $color-gold;
+}
+
+.contact__form .btn {
+  display: block;
+  margin: 8px auto 0;
+}

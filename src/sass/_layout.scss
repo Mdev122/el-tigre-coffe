@@ -1,0 +1,36 @@
+@import 'variables';
+
+// Centers content and caps its width — used inside every section instead
+// of each component repeating its own max-width/margin/padding.
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+// Generic "subpage" spacing: a small padding above/below whatever content
+// sits inside it. Applied to top-level content sections (products, about,
+// contact) — NOT to the SPA view-switcher (see .view in _global.scss),
+// which is a different concern (visibility, not spacing).
+.page {
+  padding: 96px 0;
+}
+
+@media (max-width: $bp-mobile) {
+  .page {
+    padding: 64px 0;
+  }
+}
+
+// Flexbox helpers (used instead of a grid framework)
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gutter;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
